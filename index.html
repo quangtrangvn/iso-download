@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kho Phần Mềm Của Quang Trạng</title>
     <style>
-        /* Phần này là CSS để trang trí cho web đẹp hơn */
+        /* Phần CSS trang trí web */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
@@ -23,37 +23,46 @@
         }
         .header h1 {
             color: #1a73e8;
+            font-size: 2.2em;
+            margin-bottom: 5px;
         }
-        /* Giao diện cho từng phần mềm (Dạng thẻ - Không dùng ảnh) */
+        .header p {
+            color: #555;
+            font-size: 1.1em;
+            margin-top: 0;
+        }
+        /* Giao diện dạng thẻ - Không ảnh */
         .card {
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 25px; /* Tăng padding xíu cho thoáng vì không có ảnh */
-            margin-bottom: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
             transition: transform 0.2s;
         }
         .card:hover {
-            transform: translateY(-5px); /* Hiệu ứng nảy lên khi di chuột vào */
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         .info h3 {
             margin: 0 0 15px 0;
             font-size: 24px;
             color: #1a73e8;
-            border-bottom: 1px solid #eee;
+            border-bottom: 2px solid #f0f2f5;
             padding-bottom: 10px;
         }
         .item-title {
             font-size: 18px;
             font-weight: bold;
-            margin: 20px 0 5px 0;
+            margin: 25px 0 5px 0;
+            color: #222;
         }
         .info p {
-            margin: 0 0 15px 0;
-            color: #444;
+            margin: 0 0 12px 0;
+            color: #555;
             line-height: 1.5;
         }
-        /* Trang trí nút bấm */
+        /* Nút bấm */
         .btn-group {
             display: flex;
             flex-wrap: wrap;
@@ -82,11 +91,11 @@
         .btn-outline:hover {
             background-color: #f0f2f5;
         }
-        /* CSS cho phần code lệnh */
+        /* Phần code lệnh */
         .code-box {
             background-color: #2d2d2d;
             color: #f8f8f2;
-            padding: 12px 15px;
+            padding: 15px;
             border-radius: 6px;
             font-family: Consolas, monospace;
             margin: 10px 0;
@@ -110,20 +119,26 @@
 
         <div class="card">
             <div class="info">
-                <h3>Windows OS</h3>
+                <h3>Hệ Điều Hành Windows</h3>
                 
+                <div class="item-title" style="margin-top: 10px;">Windows 11 (Bản gốc Microsoft)</div>
+                <p>Tải trực tiếp công cụ Media Creation Tool hoặc file ISO từ trang chủ Microsoft.</p>
+                <div class="btn-group">
+                    <a href="https://www.microsoft.com/en-us/software-download/windows11" class="btn" target="_blank">Download Win 11 Gốc</a>
+                </div>
+
+                <div class="item-title">Windows 11 ISO (Update 1/11/2025)</div>
+                <p>Hỏi cái này, <strong>Trạng có đẹp trai không?</strong></p>
+                <div class="btn-group">
+                    <a href="https://docs.google.com/document/d/1Cxi6GQllryeufG81s8qa-nbfaLZhEohkWL2_YK3OohM/edit?usp=sharing" class="btn" target="_blank">Có</a>
+                    <a href="https://1drv.ms/u/c/963c576a867c4d67/EdNiq6Z0H-5ErEAPbYFzC8kBZMjGIvIan9f7fUfcbj6U1g?e=3npVCJ" class="btn btn-outline" target="_blank">Không</a>
+                </div>
+
                 <div class="item-title">Windows - M365 Folder File</div>
                 <p>Muốn vào Folder hãy trả lời câu hỏi sau bằng cách Click chuột, <strong>Trạng có đẹp trai không?</strong></p>
                 <div class="btn-group">
                     <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy85NjNjNTc2YTg2N2M0ZDY3L0VyQ29aSW9rakVGTGs4OU5YdE52a1hZQldpZmpNYzNUdGdUUUtVWkQ1M0tWOXc%5FZT1YbkhTdDY&id=963C576A867C4D67%21s8a64a8b08c244b4193cf4d5ed36f9176&cid=963C576A867C4D67" class="btn" target="_blank">Có</a>
                     <a href="https://docs.google.com/document/d/1LJoZaLJs56UNBZWUSf574FfilomUXTYMVYUnLvRR-SU/edit?usp=sharing" class="btn btn-outline" target="_blank">Không</a>
-                </div>
-
-                <div class="item-title">Windows 11 ISO (Update 1/11/2025)</div>
-                <p>Hỏi lại cái nữa <strong>Trạng có đẹp trai không?</strong></p>
-                <div class="btn-group">
-                    <a href="https://docs.google.com/document/d/1Cxi6GQllryeufG81s8qa-nbfaLZhEohkWL2_YK3OohM/edit?usp=sharing" class="btn" target="_blank">Có</a>
-                    <a href="https://1drv.ms/u/c/963c576a867c4d67/EdNiq6Z0H-5ErEAPbYFzC8kBZMjGIvIan9f7fUfcbj6U1g?e=3npVCJ" class="btn btn-outline" target="_blank">Không</a>
                 </div>
 
                 <div class="item-title">Windows 7 ISO</div>
@@ -137,8 +152,8 @@
             <div class="info">
                 <h3>Bộ Công Cụ Office</h3>
                 
-                <div class="item-title">Office Cổ (2010 - 2019)</div>
-                <p>Lựa chọn phiên bản phù hợp:</p>
+                <div class="item-title" style="margin-top: 10px;">Office Cổ (2010 - 2019)</div>
+                <p>Lựa chọn phiên bản phù hợp với máy của bạn:</p>
                 <div class="btn-group">
                     <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=a3VxT051RFNrbGZYb2x6QWhiMkRTQT09OjpoZHNOM3hOQnpwK2tpaGtQaEdMQVZRPT06OnJuN2o0ejVYdTFJV0o1RHQ1MzdHZnc9PQ==" class="btn" target="_blank">Bản 2019</a>
                     <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=QXJsUlVqMVNVWlc3MTZFWU5WNGVxZz09OjpQWGwwbVc4YVFtSFdLVzk0MGc5a1R3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Bản 2013</a>
@@ -155,16 +170,36 @@
 
         <div class="card">
             <div class="info">
+                <h3>Phần Mềm Tiện Ích</h3>
+                
+                <div class="item-title" style="margin-top: 10px;">Bộ Gõ Tiếng Việt & Giải Nén</div>
+                <p>Các ứng dụng nền tảng không thể thiếu cho máy tính.</p>
+                <div class="btn-group">
+                    <a href="https://www.unikey.org/download.html" class="btn" target="_blank">Tải Unikey</a>
+                    <a href="https://www.7-zip.org/download.html" class="btn btn-outline" target="_blank">Tải 7-Zip</a>
+                </div>
+
+                <div class="item-title">Công Cụ Hỗ Trợ Tải File & Truyền Thông</div>
+                <p>Phần mềm tăng tốc độ download và studio quay phát trực tiếp.</p>
+                <div class="btn-group">
+                    <a href="https://www.internetdownloadmanager.com/download.html" class="btn" target="_blank">Tải IDM</a>
+                    <a href="https://obsproject.com/download" class="btn btn-outline" target="_blank">Tải OBS Studio</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="info">
                 <h3>Công Cụ Boot & Cứu Hộ</h3>
                 
-                <div class="item-title">Rufus</div>
-                <p>Tool USB boot có thể By pa ss máy khg hỗ trợ TPM 2.0 để cài đặt windows 11.</p>
+                <div class="item-title" style="margin-top: 10px;">Rufus</div>
+                <p>Tool tạo USB boot, hỗ trợ Bypass máy không có TPM 2.0 để cài đặt Windows 11.</p>
                 <div class="btn-group">
                     <a href="https://rufus.ie/downloads/" class="btn" target="_blank">Download Rufus Now</a>
                 </div>
 
-                <div class="item-title">Tool cứu hộ máy tính</div>
-                <p>Anhdvboot - Cứu hộ máy tính chuyên nghiệp.</p>
+                <div class="item-title">Tool Cứu Hộ Máy Tính</div>
+                <p>Anhdvboot - Bộ công cụ cứu hộ máy tính chuyên nghiệp hàng đầu.</p>
                 <div class="btn-group">
                     <a href="https://anhdvboot.com/tai-ve/" class="btn" target="_blank">Download Anhdvboot Now</a>
                 </div>
@@ -175,9 +210,9 @@
             <div class="info">
                 <h3>Activate Windows / Office (MAS)</h3>
                 
-                <p>Mở PowerShell hoặc CMD với quyền Administrator - Off windows defender.<br>
-                Để thực hiện, hãy nhấn phím <strong>Windows + X</strong>, sau đó chọn PowerShell hoặc Terminal.</p>
-                <p>Sao chép và dán 1 trong 2 mã bên dưới, sau đó nhấn enter.</p>
+                <p>Mở PowerShell hoặc CMD với quyền Administrator - Tắt Windows Defender.<br>
+                Nhấn phím <strong>Windows + X</strong>, sau đó chọn <strong>PowerShell</strong> hoặc <strong>Terminal</strong>.</p>
+                <p>Sao chép và dán 1 trong 2 mã bên dưới, sau đó nhấn Enter.</p>
                 
                 <div class="code-box">irm https://get.activated.win | iex</div>
                 <div class="code-box">irm https://massgrave.dev/get | iex</div>
@@ -194,7 +229,7 @@
                     <li>Nhấp chuột phải vào tệp zip đã tải xuống và giải nén.</li>
                     <li>Trong thư mục đã giải nén, tìm thư mục có tên <code>All-In-One-Version</code>.</li>
                     <li>Chạy tệp có tên <code>MAS_AIO.cmd</code>.</li>
-                    <li>Bạn sẽ thấy các tùy chọn kích hoạt. Làm theo hướng dẫn trên màn hình. Vậy thôi.</li>
+                    <li>Giao diện kích hoạt sẽ hiện ra. Làm theo hướng dẫn trên màn hình. Vậy thôi!</li>
                 </ol>
             </div>
         </div>
