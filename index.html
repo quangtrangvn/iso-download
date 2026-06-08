@@ -1,227 +1,202 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kho Tải Phần Mềm - ios-download</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
+            background-color: #fafafa;
             color: #333;
             margin: 0;
             padding: 20px;
+            line-height: 1.6;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .header {
+        header {
             text-align: center;
             margin-bottom: 30px;
-            padding: 20px;
-            background-color: #007bff;
-            color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 20px;
         }
-        .header h1 {
+        h1 {
+            color: #1a73e8;
             margin: 0;
-            font-size: 2.2em;
         }
-        .card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        h2 {
+            color: #1a73e8;
+            margin-top: 30px;
+            margin-bottom: 15px;
             display: flex;
-            align-items: flex-start;
-            padding: 25px;
-            margin-bottom: 25px;
-            transition: transform 0.2s, box-shadow 0.2s;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        h2 img {
+            width: 32px;
+            height: 32px;
+            margin-right: 15px;
         }
-        .card img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-right: 25px;
-            background-color: #f8f9fa;
-            padding: 10px;
-            border-radius: 10px;
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
-        .info {
-            flex-grow: 1;
+        p {
+            margin-bottom: 15px;
         }
-        .info h3 {
-            margin: 0 0 10px 0;
-            color: #007bff;
-            font-size: 20px;
-        }
-        .info p {
-            margin: 0 0 15px 0;
-            color: #666;
-            line-height: 1.5;
-        }
-        .btn-group {
+        .link-container {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 10px;
+            margin-bottom: 15px;
         }
         .btn {
             display: inline-block;
-            background-color: #007bff;
+            background-color: #1a73e8;
             color: white;
             text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 4px;
             font-weight: bold;
             font-size: 14px;
             transition: background-color 0.2s;
         }
         .btn:hover {
-            background-color: #0056b3;
+            background-color: #1557b0;
         }
         .btn-outline {
-            background-color: white;
-            color: #007bff;
-            border: 2px solid #007bff;
+            background-color: transparent;
+            color: #1a73e8;
+            border: 2px solid #1a73e8;
         }
         .btn-outline:hover {
             background-color: #f0f4f8;
         }
-        .btn-green {
-            background-color: #28a745;
+        .choice-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
-        .btn-green:hover {
-            background-color: #218838;
-        }
-        .code-box {
+        code-block {
             background-color: #2d2d2d;
             color: #f8f8f2;
-            padding: 15px;
-            border-radius: 8px;
+            padding: 10px 15px;
+            border-radius: 4px;
             font-family: Consolas, monospace;
-            margin: 10px 0;
+            margin-bottom: 15px;
             overflow-x: auto;
+            display: block;
         }
-        .instruction {
-            color: #555;
-            line-height: 1.6;
+        ol, ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
         }
-        /* Mobile responsive */
-        @media (max-width: 600px) {
-            .card {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .card img {
-                margin: 0 0 15px 0;
-            }
-            .btn-group {
-                justify-content: center;
-            }
+        li {
+            margin-bottom: 5px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <div class="header">
-            <h1>📥 KHO TẢI VỀ</h1>
-            <p>Tổng hợp File ISO, Công cụ & Script kích hoạt</p>
-        </div>
+        <header>
+            <h1>🚀 Kho Tải Phần Mềm 📂</h1>
+            <p>Tổng hợp File ISO, Công cụ Boot & Script kích hoạt</p>
+        </header>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Windows_logo_and_wordmark_-_2012.svg" alt="Windows Logo">
-            <div class="info">
-                <h3>Windows OS & Files</h3>
-                
-                <p><strong>Windows - M365 Folder File</strong><br> Muốn vào Folder hãy trả lời câu hỏi sau bằng cách Click chuột, Trạng có đẹp trai không?</p>
-                <div class="btn-group">
-                    <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy85NjNjNTc2YTg2N2M0ZDY3L0VyQ29aSW9rakVGTGs4OU5YdE52a1hZQldpZmpNYzNUdGdUUUtVWkQ1M0tWOXc%5FZT1YbkhTdDY&id=963C576A867C4D67%21s8a64a8b08c244b4193cf4d5ed36f9176&cid=963C576A867C4D67" class="btn btn-green" target="_blank">Có (Chính xác!)</a>
-                    <a href="https://docs.google.com/document/d/1LJoZaLJs56UNBZWUSf574FfilomUXTYMVYUnLvRR-SU/edit?usp=sharing" class="btn btn-outline" target="_blank">Không (Hahaha)</a>
-                </div>
-                
-                <hr style="border: 0; border-top: 1px solid #ddd; margin: 25px 0;">
+        <section>
+            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Windows_logo_and_wordmark_-_2012.svg" alt="Windows Logo"> Hệ Điều Hành Windows</h2>
+            
+            <h3>Windows - M365 Folder File</h3>
+            <p>Muốn vào Folder hãy trả lời câu hỏi sau bằng cách Click chuột, <strong>Trạng có đẹp trai không?</strong> 🤔</p>
+            <div class="choice-container">
+                <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy85NjNjNTc2YTg2N2M0ZDY3L0VyQ29aSW9rakVGTGs4OU5YdE52a1hZQldpZmpNYzNUdGdUUUtVWkQ1M0tWOXc%5FZT1YbkhTdDY&id=963C576A867C4D67%21s8a64a8b08c244b4193cf4d5ed36f9176&cid=963C576A867C4D67" class="btn" target="_blank">Có</a>
+                <a href="https://docs.google.com/document/d/1LJoZaLJs56UNBZWUSf574FfilomUXTYMVYUnLvRR-SU/edit?usp=sharing" class="btn btn-outline" target="_blank">Không</a>
+            </div>
 
-                <p><strong>Windows 11 iso file update 1/11/2025</strong><br> Hỏi lại cái nữa Trạng có đẹp trai không?</p>
-                <div class="btn-group">
-                    <a href="https://docs.google.com/document/d/1Cxi6GQllryeufG81s8qa-nbfaLZhEohkWL2_YK3OohM/edit?usp=sharing" class="btn" target="_blank">Có</a>
-                    <a href="https://1drv.ms/u/c/963c576a867c4d67/EdNiq6Z0H-5ErEAPbYFzC8kBZMjGIvIan9f7fUfcbj6U1g?e=3npVCJ" class="btn btn-outline" target="_blank">Không</a>
-                </div>
-                
-                <hr style="border: 0; border-top: 1px solid #ddd; margin: 25px 0;">
+            <h3>Windows 11 ISO (Update 1/11/2025)</h3>
+            <p>Hỏi lại cái nữa <strong>Trạng có đẹp trai không?</strong> 🤔</p>
+            <div class="choice-container">
+                <a href="https://docs.google.com/document/d/1Cxi6GQllryeufG81s8qa-nbfaLZhEohkWL2_YK3OohM/edit?usp=sharing" class="btn" target="_blank">Có</a>
+                <a href="https://1drv.ms/u/c/963c576a867c4d67/EdNiq6Z0H-5ErEAPbYFzC8kBZMjGIvIan9f7fUfcbj6U1g?e=3npVCJ" class="btn btn-outline" target="_blank">Không</a>
+            </div>
 
-                <p><strong>Windows 7</strong></p>
+            <h3>Windows 7 ISO</h3>
+            <div class="link-container">
                 <a href="https://drive.google.com/drive/folders/1nEhBsxDF0f5m0i6I09VWDV7wmZS7ALWJ?usp=sharing" class="btn" target="_blank">Download Win 7 Now</a>
             </div>
-        </div>
+        </section>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office Logo">
-            <div class="info">
-                <h3>Office Cổ & Visio</h3>
-                <p>Tổng hợp các phiên bản Office (2010 - 2019) và Visio:</p>
-                <div class="btn-group">
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=a3VxT051RFNrbGZYb2x6QWhiMkRTQT09OjpoZHNOM3hOQnpwK2tpaGtQaEdMQVZRPT06OnJuN2o0ejVYdTFJV0o1RHQ1MzdHZnc9PQ==" class="btn" target="_blank">Bản 2019</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=QXJsUlVqMVNVWlc3MTZFWU5WNGVxZz09OjpQWGwwbVc4YVFtSFdLVzk0MGc5a1R3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Bản 2013</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=NzdPVjVFeUpVWHMvR0JJbUdEMytUZz09OjpRenl6VXlzcTBDSlVoZ1pKWk8rZmN3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Bản 2016</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=Y1F4czlIQUtmcFhwY2w3ZEpTSnIwUT09Ojo1eHlVbWl3dmNHTlYwS0YxUTN2c3hRPT06OnVQL1Z6Y3NHMFhURDA4OGEwelVlY1E9PQ==" class="btn" target="_blank">Bản 2010</a>
-                </div>
-                <div class="btn-group" style="margin-top: 15px;">
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=WFBXTFhKajNqblE5S2FkYnV0M0hYQT09Ojp0di8rQTBYdk1jYmpmMmhqYXpNRVdRPT06OndHYnR5N3NKdk92REtQUjZaSHg3bGc9PQ==" class="btn btn-outline" target="_blank">Tải Visio 2019 Now</a>
-                </div>
+        <section>
+            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office Logo"> Bộ Công Cụ Office</h2>
+            
+            <h3>Office Cổ (2010 - 2019)</h3>
+            <div class="link-container">
+                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=a3VxT051RFNrbGZYb2x6QWhiMkRTQT09OjpoZHNOM3hOQnpwK2tpaGtQaEdMQVZRPT06OnJuN2o0ejVYdTFJV0o1RHQ1MzdHZnc9PQ==" class="btn" target="_blank">Office 2019</a>
+                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=QXJsUlVqMVNVWlc3MTZFWU5WNGVxZz09OjpQWGwwbVc4YVFtSFdLVzk0MGc5a1R3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Office 2013</a>
+                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=NzdPVjVFeUpVWHMvR0JJbUdEMytUZz09OjpRenl6VXlzcTBDSlVoZ1pKWk8rZmN3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Office 2016</a>
+                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=Y1F4czlIQUtmcFhwY2w3ZEpTSnIwUT09Ojo1eHlVbWl3dmNHTlYwS0YxUTN2c3hRPT06OnVQL1Z6Y3NHMFhURDA4OGEwelVlY1E9PQ==" class="btn" target="_blank">Office 2010</a>
             </div>
-        </div>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Toolbox_icon.svg" alt="Tools Icon">
-            <div class="info">
-                <h3>Công cụ Boot & Cứu hộ</h3>
-                <p><strong>Rufus:</strong> Tool USB boot có thể By pa ss máy khg hỗ trợ TPM 2.0 để cài đặt windows 11.</p>
+            <h3>Visio 2019</h3>
+            <div class="link-container">
+                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=WFBXTFhKajNqblE5S2FkYnV0M0hYQT09Ojp0di8rQTBYdk1jYmpmMmhqYXpNRVdRPT06OndHYnR5N3NKdk92REtQUjZaSHg3bGc9PQ==" class="btn" target="_blank">Download Visio 2019</a>
+            </div>
+        </section>
+
+        <section>
+            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Toolbox_icon.svg" alt="Tools Icon"> Công Cụ Boot & Cứu Hộ</h2>
+            
+            <h3>Rufus</h3>
+            <p>Tool USB boot có thể bypass máy không hỗ trợ TPM 2.0 để cài đặt windows 11</p>
+            <div class="link-container">
                 <a href="https://rufus.ie/downloads/" class="btn" target="_blank">Download Rufus Now</a>
-                
-                <hr style="border: 0; border-top: 1px solid #ddd; margin: 25px 0;">
-                
-                <p><strong>Tool cứu hộ máy tính - Anhdvboot</strong></p>
+            </div>
+
+            <h3>Anhdvboot</h3>
+            <p>Tool cứu hộ máy tính</p>
+            <div class="link-container">
                 <a href="https://anhdvboot.com/tai-ve/" class="btn" target="_blank">Download Anhdvboot Now</a>
             </div>
-        </div>
+        </section>
 
-        <div class="card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Terminalicon2.png" alt="Terminal Icon">
-            <div class="info">
-                <h3>Script Kích hoạt (MAS)</h3>
-                <p>Mở PowerShell hoặc CMD với quyền Administrator - Off windows defender...</p>
-                <p class="instruction">Để thực hiện, hãy nhấn phím <code>Windows + X</code>, sau đó chọn PowerShell hoặc Terminal.</p>
-                <p>Sao chép và dán mã bên dưới, sau đó nhấn enter.</p>
-                <p><strong>Activate Windows / Office</strong></p>
-                <div class="code-box">irm https://get.activated.win | iex</div>
-                <div class="code-box">irm https://massgrave.dev/get | iex</div>
-                
-                <hr style="border: 0; border-top: 1px solid #ddd; margin: 25px 0;">
-
-                <p><strong>TOOL (Kích hoạt thủ công)</strong></p>
-                <ol class="instruction">
-                    <li>Tải xuống tệp bằng một trong các liên kết bên dưới:</li>
-                </ol>
-                <div class="btn-group" style="margin-left: 20px;">
-                    <a href="https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip" class="btn btn-outline" target="_blank">Download Now 1</a>
-                    <a href="https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip" class="btn btn-outline" target="_blank">Download Now 2</a>
-                </div>
-                <ol class="instruction" start="2">
-                    <li>(skipped)</li>
-                    <li>Nhấp chuột phải vào tệp zip đã tải xuống và giải nén.</li>
-                    <li>Trong thư mục đã giải nén, tìm thư mục có tên All-In-One-Version.</li>
-                    <li>Chạy tệp có tên MAS_AIO.cmd.</li>
-                    <li>Bạn sẽ thấy các tùy chọn kích hoạt. Làm theo hướng dẫn trên màn hình. Vậy thôi!</li>
-                </ol>
+        <section>
+            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Terminalicon2.png" alt="Terminal Icon"> Script Kích Hoạt (MAS)</h2>
+            
+            <p>Mở <strong>PowerShell</strong> hoặc <strong>CMD</strong> với quyền Administrator - Off windows defender...</p>
+            <p>Để thực hiện, hãy nhấn phím <code>Windows + X</code>, sau đó chọn PowerShell hoặc Terminal.</p>
+            <p>Sao chép và dán mã bên dưới, sau đó nhấn enter.</p>
+            
+            <p><strong>Activate Windows / Office:</strong></p>
+            <code-block>irm https://get.activated.win | iex</code-block>
+            <code-block>irm https://massgrave.dev/get | iex</code-block>
+            
+            <p><strong>TOOL:</strong></p>
+            <ol>
+                <li>Tải xuống tệp bằng một trong các liên kết bên dưới:</li>
+            </ol>
+            <div class="link-container" style="margin-left: 20px;">
+                <a href="https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip" class="btn" target="_blank">Download Now 1</a>
+                <a href="https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip" class="btn" target="_blank">Download Now 2</a>
             </div>
-        </div>
+            <ol start="2">
+                <li>(skipped)</li>
+                <li>Nhấp chuột phải vào tệp zip đã tải xuống và giải nén.</li>
+                <li>Trong thư mục đã giải nén, tìm thư mục có tên <code>All-In-One-Version</code>.</li>
+                <li>Chạy tệp có tên <code>MAS_AIO.cmd</code>.</li>
+                <li>Bạn sẽ thấy các tùy chọn kích hoạt. Làm theo hướng dẫn trên màn hình. Vậy thôi!</li>
+            </ol>
+        </section>
 
     </div>
 
