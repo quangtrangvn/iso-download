@@ -3,61 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kho Tải Phần Mềm - ios-download</title>
+    <title>Kho Phần Mềm Của Quang Trạng</title>
     <style>
+        /* Phần này là CSS để trang trí cho web đẹp hơn */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fafafa;
+            background-color: #f0f2f5;
             color: #333;
             margin: 0;
             padding: 20px;
-            line-height: 1.6;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        header {
+        .header {
             text-align: center;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 20px;
+            margin-bottom: 40px;
         }
-        h1 {
+        .header h1 {
             color: #1a73e8;
-            margin: 0;
         }
-        h2 {
+        /* Giao diện cho từng phần mềm (Dạng thẻ - Không dùng ảnh) */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 25px; /* Tăng padding xíu cho thoáng vì không có ảnh */
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Hiệu ứng nảy lên khi di chuột vào */
+        }
+        .info h3 {
+            margin: 0 0 15px 0;
+            font-size: 24px;
             color: #1a73e8;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #eee;
             padding-bottom: 10px;
         }
-        h2 img {
-            width: 32px;
-            height: 32px;
-            margin-right: 15px;
+        .item-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 20px 0 5px 0;
         }
-        h3 {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-weight: 600;
+        .info p {
+            margin: 0 0 15px 0;
+            color: #444;
+            line-height: 1.5;
         }
-        p {
-            margin-bottom: 15px;
-        }
-        .link-container {
+        /* Trang trí nút bấm */
+        .btn-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
         .btn {
             display: inline-block;
@@ -65,9 +66,8 @@
             color: white;
             text-decoration: none;
             padding: 10px 20px;
-            border-radius: 4px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 14px;
             transition: background-color 0.2s;
         }
         .btn:hover {
@@ -77,126 +77,127 @@
             background-color: transparent;
             color: #1a73e8;
             border: 2px solid #1a73e8;
+            padding: 8px 18px;
         }
         .btn-outline:hover {
-            background-color: #f0f4f8;
+            background-color: #f0f2f5;
         }
-        .choice-container {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-            margin-bottom: 20px;
-        }
-        code-block {
+        /* CSS cho phần code lệnh */
+        .code-box {
             background-color: #2d2d2d;
             color: #f8f8f2;
-            padding: 10px 15px;
-            border-radius: 4px;
+            padding: 12px 15px;
+            border-radius: 6px;
             font-family: Consolas, monospace;
-            margin-bottom: 15px;
+            margin: 10px 0;
             overflow-x: auto;
-            display: block;
         }
-        ol, ul {
-            margin-bottom: 15px;
+        ul, ol {
+            margin: 10px 0 15px 0;
             padding-left: 20px;
-        }
-        li {
-            margin-bottom: 5px;
+            color: #444;
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <h1>🚀 Kho Tải Phần Mềm 📂</h1>
-            <p>Tổng hợp File ISO, Công cụ Boot & Script kích hoạt</p>
-        </header>
+        <div class="header">
+            <h1>📥 Kho Tải Xuống</h1>
+            <p>Tuyển tập các file ISO và phần mềm cần thiết của Quang Trạng</p>
+        </div>
 
-        <section>
-            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Windows_logo_and_wordmark_-_2012.svg" alt="Windows Logo"> Hệ Điều Hành Windows</h2>
-            
-            <h3>Windows - M365 Folder File</h3>
-            <p>Muốn vào Folder hãy trả lời câu hỏi sau bằng cách Click chuột, <strong>Trạng có đẹp trai không?</strong> 🤔</p>
-            <div class="choice-container">
-                <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy85NjNjNTc2YTg2N2M0ZDY3L0VyQ29aSW9rakVGTGs4OU5YdE52a1hZQldpZmpNYzNUdGdUUUtVWkQ1M0tWOXc%5FZT1YbkhTdDY&id=963C576A867C4D67%21s8a64a8b08c244b4193cf4d5ed36f9176&cid=963C576A867C4D67" class="btn" target="_blank">Có</a>
-                <a href="https://docs.google.com/document/d/1LJoZaLJs56UNBZWUSf574FfilomUXTYMVYUnLvRR-SU/edit?usp=sharing" class="btn btn-outline" target="_blank">Không</a>
-            </div>
+        <div class="card">
+            <div class="info">
+                <h3>Windows OS</h3>
+                
+                <div class="item-title">Windows - M365 Folder File</div>
+                <p>Muốn vào Folder hãy trả lời câu hỏi sau bằng cách Click chuột, <strong>Trạng có đẹp trai không?</strong></p>
+                <div class="btn-group">
+                    <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy85NjNjNTc2YTg2N2M0ZDY3L0VyQ29aSW9rakVGTGs4OU5YdE52a1hZQldpZmpNYzNUdGdUUUtVWkQ1M0tWOXc%5FZT1YbkhTdDY&id=963C576A867C4D67%21s8a64a8b08c244b4193cf4d5ed36f9176&cid=963C576A867C4D67" class="btn" target="_blank">Có</a>
+                    <a href="https://docs.google.com/document/d/1LJoZaLJs56UNBZWUSf574FfilomUXTYMVYUnLvRR-SU/edit?usp=sharing" class="btn btn-outline" target="_blank">Không</a>
+                </div>
 
-            <h3>Windows 11 ISO (Update 1/11/2025)</h3>
-            <p>Hỏi lại cái nữa <strong>Trạng có đẹp trai không?</strong> 🤔</p>
-            <div class="choice-container">
-                <a href="https://docs.google.com/document/d/1Cxi6GQllryeufG81s8qa-nbfaLZhEohkWL2_YK3OohM/edit?usp=sharing" class="btn" target="_blank">Có</a>
-                <a href="https://1drv.ms/u/c/963c576a867c4d67/EdNiq6Z0H-5ErEAPbYFzC8kBZMjGIvIan9f7fUfcbj6U1g?e=3npVCJ" class="btn btn-outline" target="_blank">Không</a>
-            </div>
+                <div class="item-title">Windows 11 ISO (Update 1/11/2025)</div>
+                <p>Hỏi lại cái nữa <strong>Trạng có đẹp trai không?</strong></p>
+                <div class="btn-group">
+                    <a href="https://docs.google.com/document/d/1Cxi6GQllryeufG81s8qa-nbfaLZhEohkWL2_YK3OohM/edit?usp=sharing" class="btn" target="_blank">Có</a>
+                    <a href="https://1drv.ms/u/c/963c576a867c4d67/EdNiq6Z0H-5ErEAPbYFzC8kBZMjGIvIan9f7fUfcbj6U1g?e=3npVCJ" class="btn btn-outline" target="_blank">Không</a>
+                </div>
 
-            <h3>Windows 7 ISO</h3>
-            <div class="link-container">
-                <a href="https://drive.google.com/drive/folders/1nEhBsxDF0f5m0i6I09VWDV7wmZS7ALWJ?usp=sharing" class="btn" target="_blank">Download Win 7 Now</a>
+                <div class="item-title">Windows 7 ISO</div>
+                <div class="btn-group">
+                    <a href="https://drive.google.com/drive/folders/1nEhBsxDF0f5m0i6I09VWDV7wmZS7ALWJ?usp=sharing" class="btn" target="_blank">Download Win 7 Now</a>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office Logo"> Bộ Công Cụ Office</h2>
-            
-            <h3>Office Cổ (2010 - 2019)</h3>
-            <div class="link-container">
-                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=a3VxT051RFNrbGZYb2x6QWhiMkRTQT09OjpoZHNOM3hOQnpwK2tpaGtQaEdMQVZRPT06OnJuN2o0ejVYdTFJV0o1RHQ1MzdHZnc9PQ==" class="btn" target="_blank">Office 2019</a>
-                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=QXJsUlVqMVNVWlc3MTZFWU5WNGVxZz09OjpQWGwwbVc4YVFtSFdLVzk0MGc5a1R3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Office 2013</a>
-                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=NzdPVjVFeUpVWHMvR0JJbUdEMytUZz09OjpRenl6VXlzcTBDSlVoZ1pKWk8rZmN3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Office 2016</a>
-                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=Y1F4czlIQUtmcFhwY2w3ZEpTSnIwUT09Ojo1eHlVbWl3dmNHTlYwS0YxUTN2c3hRPT06OnVQL1Z6Y3NHMFhURDA4OGEwelVlY1E9PQ==" class="btn" target="_blank">Office 2010</a>
-            </div>
+        <div class="card">
+            <div class="info">
+                <h3>Bộ Công Cụ Office</h3>
+                
+                <div class="item-title">Office Cổ (2010 - 2019)</div>
+                <p>Lựa chọn phiên bản phù hợp:</p>
+                <div class="btn-group">
+                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=a3VxT051RFNrbGZYb2x6QWhiMkRTQT09OjpoZHNOM3hOQnpwK2tpaGtQaEdMQVZRPT06OnJuN2o0ejVYdTFJV0o1RHQ1MzdHZnc9PQ==" class="btn" target="_blank">Bản 2019</a>
+                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=QXJsUlVqMVNVWlc3MTZFWU5WNGVxZz09OjpQWGwwbVc4YVFtSFdLVzk0MGc5a1R3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Bản 2013</a>
+                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=NzdPVjVFeUpVWHMvR0JJbUdEMytUZz09OjpRenl6VXlzcTBDSlVoZ1pKWk8rZmN3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn" target="_blank">Bản 2016</a>
+                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=Y1F4czlIQUtmcFhwY2w3ZEpTSnIwUT09Ojo1eHlVbWl3dmNHTlYwS0YxUTN2c3hRPT06OnVQL1Z6Y3NHMFhURDA4OGEwelVlY1E9PQ==" class="btn" target="_blank">Bản 2010</a>
+                </div>
 
-            <h3>Visio 2019</h3>
-            <div class="link-container">
-                <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=WFBXTFhKajNqblE5S2FkYnV0M0hYQT09Ojp0di8rQTBYdk1jYmpmMmhqYXpNRVdRPT06OndHYnR5N3NKdk92REtQUjZaSHg3bGc9PQ==" class="btn" target="_blank">Download Visio 2019</a>
+                <div class="item-title">Visio 2019</div>
+                <div class="btn-group">
+                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=WFBXTFhKajNqblE5S2FkYnV0M0hYQT09Ojp0di8rQTBYdk1jYmpmMmhqYXpNRVdRPT06OndHYnR5N3NKdk92REtQUjZaSHg3bGc9PQ==" class="btn btn-outline" target="_blank">Download Visio 2019</a>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/3/30/Toolbox_icon.svg" alt="Tools Icon"> Công Cụ Boot & Cứu Hộ</h2>
-            
-            <h3>Rufus</h3>
-            <p>Tool USB boot có thể bypass máy không hỗ trợ TPM 2.0 để cài đặt windows 11</p>
-            <div class="link-container">
-                <a href="https://rufus.ie/downloads/" class="btn" target="_blank">Download Rufus Now</a>
-            </div>
+        <div class="card">
+            <div class="info">
+                <h3>Công Cụ Boot & Cứu Hộ</h3>
+                
+                <div class="item-title">Rufus</div>
+                <p>Tool USB boot có thể By pa ss máy khg hỗ trợ TPM 2.0 để cài đặt windows 11.</p>
+                <div class="btn-group">
+                    <a href="https://rufus.ie/downloads/" class="btn" target="_blank">Download Rufus Now</a>
+                </div>
 
-            <h3>Anhdvboot</h3>
-            <p>Tool cứu hộ máy tính</p>
-            <div class="link-container">
-                <a href="https://anhdvboot.com/tai-ve/" class="btn" target="_blank">Download Anhdvboot Now</a>
+                <div class="item-title">Tool cứu hộ máy tính</div>
+                <p>Anhdvboot - Cứu hộ máy tính chuyên nghiệp.</p>
+                <div class="btn-group">
+                    <a href="https://anhdvboot.com/tai-ve/" class="btn" target="_blank">Download Anhdvboot Now</a>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <section>
-            <h2><img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Terminalicon2.png" alt="Terminal Icon"> Script Kích Hoạt (MAS)</h2>
-            
-            <p>Mở <strong>PowerShell</strong> hoặc <strong>CMD</strong> với quyền Administrator - Off windows defender...</p>
-            <p>Để thực hiện, hãy nhấn phím <code>Windows + X</code>, sau đó chọn PowerShell hoặc Terminal.</p>
-            <p>Sao chép và dán mã bên dưới, sau đó nhấn enter.</p>
-            
-            <p><strong>Activate Windows / Office:</strong></p>
-            <code-block>irm https://get.activated.win | iex</code-block>
-            <code-block>irm https://massgrave.dev/get | iex</code-block>
-            
-            <p><strong>TOOL:</strong></p>
-            <ol>
-                <li>Tải xuống tệp bằng một trong các liên kết bên dưới:</li>
-            </ol>
-            <div class="link-container" style="margin-left: 20px;">
-                <a href="https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip" class="btn" target="_blank">Download Now 1</a>
-                <a href="https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip" class="btn" target="_blank">Download Now 2</a>
+        <div class="card">
+            <div class="info">
+                <h3>Activate Windows / Office (MAS)</h3>
+                
+                <p>Mở PowerShell hoặc CMD với quyền Administrator - Off windows defender.<br>
+                Để thực hiện, hãy nhấn phím <strong>Windows + X</strong>, sau đó chọn PowerShell hoặc Terminal.</p>
+                <p>Sao chép và dán 1 trong 2 mã bên dưới, sau đó nhấn enter.</p>
+                
+                <div class="code-box">irm https://get.activated.win | iex</div>
+                <div class="code-box">irm https://massgrave.dev/get | iex</div>
+
+                <div class="item-title" style="margin-top: 30px;">Tải TOOL Kích Hoạt Thủ Công</div>
+                <ol>
+                    <li>Tải xuống tệp bằng một trong các liên kết bên dưới:</li>
+                </ol>
+                <div class="btn-group" style="margin-left: 20px;">
+                    <a href="https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip" class="btn btn-outline" target="_blank">Download Now 1</a>
+                    <a href="https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip" class="btn btn-outline" target="_blank">Download Now 2</a>
+                </div>
+                <ol start="2">
+                    <li>Nhấp chuột phải vào tệp zip đã tải xuống và giải nén.</li>
+                    <li>Trong thư mục đã giải nén, tìm thư mục có tên <code>All-In-One-Version</code>.</li>
+                    <li>Chạy tệp có tên <code>MAS_AIO.cmd</code>.</li>
+                    <li>Bạn sẽ thấy các tùy chọn kích hoạt. Làm theo hướng dẫn trên màn hình. Vậy thôi.</li>
+                </ol>
             </div>
-            <ol start="2">
-                <li>(skipped)</li>
-                <li>Nhấp chuột phải vào tệp zip đã tải xuống và giải nén.</li>
-                <li>Trong thư mục đã giải nén, tìm thư mục có tên <code>All-In-One-Version</code>.</li>
-                <li>Chạy tệp có tên <code>MAS_AIO.cmd</code>.</li>
-                <li>Bạn sẽ thấy các tùy chọn kích hoạt. Làm theo hướng dẫn trên màn hình. Vậy thôi!</li>
-            </ol>
-        </section>
+        </div>
 
     </div>
 
