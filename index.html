@@ -1,18 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>Trang Download Của Tôi</title>
+    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho Phần Mềm Của Quang Trạng</title>
+    <style>
+        /* Phần này là CSS để trang trí cho web đẹp hơn */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: #1a73e8;
+        }
+        /* Giao diện cho từng phần mềm (Dạng thẻ) */
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px); /* Hiệu ứng nảy lên khi di chuột vào */
+        }
+        .card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        .info {
+            flex-grow: 1;
+        }
+        .info h3 {
+            margin: 0 0 10px 0;
+            font-size: 22px;
+        }
+        .info p {
+            margin: 0 0 15px 0;
+            color: #666;
+        }
+        /* Trang trí nút bấm tải xuống */
+        .btn {
+            display: inline-block;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background-color: #1557b0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Danh sách phần mềm</h1>
-    
-    <h3>Office Cổ 2010-2019</h3>
-    <ul>
-        <li><a href="https://link-tai-2019.com">Bản 2019</a></li>
-        <li><a href="https://link-tai-2013.com">Bản 2013</a></li>
-    </ul>
 
-    <h3>Công cụ khác</h3>
-    <p>Windows 7: <a href="https://link-tai-win7.com">Download Now</a></p>
+    <div class="container">
+        <div class="header">
+            <h1>📥 Kho Tải Xuống</h1>
+            <p>Tuyển tập các file ISO và phần mềm cần thiết</p>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Windows_logo_and_wordmark_-_2012.svg" alt="Windows Logo">
+            <div class="info">
+                <h3>Windows 7 ISO</h3>
+                <p>Bản gốc ổn định, hỗ trợ cài đặt cho máy cấu hình thấp.</p>
+                <a href="https://link-tai-cua-ban.com/win7" class="btn" target="_blank">Tải xuống ngay</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg" alt="Office Logo">
+            <div class="info">
+                <h3>Microsoft Office 2019</h3>
+                <p>Trọn bộ công cụ văn phòng Word, Excel, PowerPoint.</p>
+                <a href="https://link-tai-cua-ban.com/office2019" class="btn" target="_blank">Tải xuống ngay</a>
+            </div>
+        </div>
+
+        </div>
+
 </body>
 </html>
