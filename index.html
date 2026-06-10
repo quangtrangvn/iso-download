@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cổng Thông Tin & Lưu Trữ Của Quang Trạng</title>
     <style>
-        /* Phần CSS trang trí web mặc định (Giao diện sáng) */
+        /* ========================================= */
+        /* CSS CƠ BẢN & BỐ CỤC (SÁNG) */
+        /* ========================================= */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f2f5;
             color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 60px 20px 20px 20px; /* Thêm padding top để không bị che bởi nút nổi */
             transition: background-color 0.3s, color 0.3s;
         }
         .container {
@@ -26,6 +28,7 @@
             color: #1a73e8;
             font-size: 2.2em;
             margin-bottom: 10px;
+            line-height: 1.3;
         }
         .greeting {
             font-size: 1.2em;
@@ -38,26 +41,73 @@
             font-size: 1.1em;
             margin-top: 0;
         }
-        
-        /* Nút Chuyển Giao Diện Tối/Sáng */
-        .theme-btn {
-            background-color: white;
-            color: #333;
-            border: 1px solid #ddd;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
-            margin-top: 15px;
-            transition: background-color 0.2s;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        .theme-btn:hover {
-            background-color: #e4e6eb;
-        }
 
-        /* Giao diện dạng thẻ */
+        /* ========================================= */
+        /* MENU & THEME BUTTONS (CÁC NÚT NỔI) */
+        /* ========================================= */
+        .float-btn {
+            position: fixed;
+            top: 15px;
+            width: 45px;
+            height: 45px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: background-color 0.2s, transform 0.2s;
+            user-select: none;
+        }
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+        #menu-btn { left: 15px; }
+        #theme-btn { right: 15px; }
+
+        /* ========================================= */
+        /* SIDEBAR MENU (THANH TRƯỢT BÊN TRÁI) */
+        /* ========================================= */
+        .sidebar-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); z-index: 1001;
+            display: none; opacity: 0; transition: opacity 0.3s;
+        }
+        .sidebar-overlay.active { display: block; opacity: 1; }
+
+        .sidebar {
+            position: fixed; top: 0; left: -300px; width: 260px; height: 100%;
+            background-color: white; box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            z-index: 1002; transition: left 0.3s ease; overflow-y: auto;
+        }
+        .sidebar.active { left: 0; }
+        
+        .sidebar-header {
+            padding: 20px; background-color: #1a73e8; color: white;
+            font-size: 1.2em; font-weight: bold; position: sticky; top: 0;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .close-btn { cursor: pointer; font-size: 24px; }
+        
+        .sidebar ul { list-style: none; padding: 0; margin: 0; }
+        .sidebar-section { padding: 15px 20px; border-bottom: 1px solid #eee; }
+        .sidebar-section h4 { margin: 0 0 10px 0; color: #555; font-size: 0.9em; text-transform: uppercase; }
+        
+        .sidebar li {
+            padding: 10px 0; font-size: 15px; cursor: pointer; color: #333;
+            transition: color 0.2s; display: flex; align-items: center;
+        }
+        .sidebar li:hover, .sidebar li.active-filter { color: #1a73e8; font-weight: bold; }
+        .sidebar li::before { content: "•"; margin-right: 10px; color: #ccc; }
+        .sidebar li.active-filter::before { color: #1a73e8; }
+        .sidebar a { text-decoration: none; color: inherit; }
+
+        /* ========================================= */
+        /* THẺ NỘI DUNG (CARDS) */
+        /* ========================================= */
         .card {
             background-color: white;
             border-radius: 10px;
@@ -71,164 +121,129 @@
             box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         .info h3 {
-            margin: 0 0 15px 0;
-            font-size: 24px;
-            color: #1a73e8;
-            border-bottom: 2px solid #f0f2f5;
-            padding-bottom: 10px;
+            margin: 0 0 15px 0; font-size: 24px; color: #1a73e8;
+            border-bottom: 2px solid #f0f2f5; padding-bottom: 10px;
             transition: border-color 0.3s;
         }
-        .item-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 20px 0 8px 0;
-            color: #222;
-        }
-        .info p {
-            margin: 0 0 12px 0;
-            color: #555;
-            line-height: 1.5;
-        }
-        /* Nút bấm */
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
+        .item-title { font-size: 18px; font-weight: bold; margin: 20px 0 8px 0; color: #222; }
+        .info p { margin: 0 0 12px 0; color: #555; line-height: 1.5; }
+
+        /* Nút tải/link */
+        .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
         .btn {
-            display: inline-block;
-            background-color: #1a73e8;
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-            font-size: 14px;
+            display: inline-block; background-color: #1a73e8; color: white;
+            text-decoration: none; padding: 8px 16px; border-radius: 5px;
+            font-weight: bold; transition: background-color 0.2s; font-size: 14px;
         }
-        .btn:hover {
-            background-color: #1557b0;
-        }
+        .btn:hover { background-color: #1557b0; }
         .btn-outline {
-            background-color: transparent;
-            color: #1a73e8;
-            border: 2px solid #1a73e8;
-            padding: 6px 14px;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 14px;
+            background-color: transparent; color: #1a73e8; border: 2px solid #1a73e8;
+            padding: 6px 14px; border-radius: 5px; font-weight: bold; font-size: 14px;
         }
-        .btn-outline:hover {
-            background-color: #f0f2f5;
-        }
-        /* Phần code lệnh & Danh sách */
+        .btn-outline:hover { background-color: #f0f2f5; }
+
+        /* Khối code & Note */
         .code-box {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 12px;
-            border-radius: 6px;
-            font-family: Consolas, monospace;
-            margin: 8px 0;
-            overflow-x: auto;
-            font-size: 15px;
+            background-color: #2d2d2d; color: #f8f8f2; padding: 12px;
+            border-radius: 6px; font-family: Consolas, monospace; margin: 8px 0;
+            overflow-x: auto; font-size: 15px;
         }
-        ul, ol {
-            margin: 10px 0 15px 0;
-            padding-left: 20px;
-            color: #444;
-            line-height: 1.6;
-        }
-        .ai-list li {
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        .ai-list a {
-            color: #1a73e8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .ai-list a:hover {
-            text-decoration: underline;
-        }
+        ul.content-list, ol.content-list { margin: 10px 0 15px 0; padding-left: 20px; color: #444; line-height: 1.6; }
+        .ai-list li { margin-bottom: 8px; font-size: 16px; }
+        .ai-list a { color: #1a73e8; text-decoration: none; font-weight: bold; }
+        .ai-list a:hover { text-decoration: underline; }
         .note {
-            background-color: #e8f0fe;
-            border-left: 4px solid #1a73e8;
-            padding: 10px 15px;
-            margin-bottom: 15px;
-            border-radius: 0 4px 4px 0;
-            font-size: 14px;
-            transition: background-color 0.3s, border-color 0.3s;
+            background-color: #e8f0fe; border-left: 4px solid #1a73e8;
+            padding: 10px 15px; margin-bottom: 15px; border-radius: 0 4px 4px 0;
+            font-size: 14px; transition: background-color 0.3s, border-color 0.3s;
         }
+
         /* Chân trang */
         .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 25px;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid #ddd;
-            line-height: 1.8;
-            transition: border-color 0.3s;
+            text-align: center; margin-top: 40px; padding: 25px; color: #666;
+            font-size: 14px; border-top: 1px solid #ddd; line-height: 1.8; transition: border-color 0.3s;
         }
 
         /* ========================================= */
-        /* CSS DÀNH RIÊNG CHO GIAO DIỆN TỐI (DARK MODE) */
+        /* GIAO DIỆN TỐI (DARK MODE) */
         /* ========================================= */
-        body.dark-mode {
-            background-color: #18191a;
-            color: #e4e6eb;
-        }
-        body.dark-mode .header p.desc, body.dark-mode .info p, body.dark-mode ul, body.dark-mode ol, body.dark-mode .footer {
-            color: #b0b3b8;
-        }
-        body.dark-mode .card {
-            background-color: #242526;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-        }
-        body.dark-mode .info h3 {
-            border-bottom-color: #3a3b3c;
-            color: #4da3ff; /* Màu xanh sáng hơn xíu để hợp nền đen */
-        }
-        body.dark-mode .item-title {
-            color: #e4e6eb;
-        }
-        body.dark-mode .btn-outline {
-            color: #4da3ff;
-            border-color: #4da3ff;
-        }
-        body.dark-mode .btn-outline:hover {
-            background-color: #3a3b3c;
-        }
-        body.dark-mode .note {
-            background-color: #3a3b3c;
-            border-left-color: #4da3ff;
-            color: #e4e6eb;
-        }
-        body.dark-mode .theme-btn {
-            background-color: #3a3b3c;
-            color: #e4e6eb;
-            border-color: #555;
-        }
-        body.dark-mode .theme-btn:hover {
-            background-color: #4e4f50;
-        }
-        body.dark-mode .footer {
-            border-top-color: #3a3b3c;
+        body.dark-mode { background-color: #18191a; color: #e4e6eb; }
+        body.dark-mode .float-btn { background-color: #242526; color: #e4e6eb; border: 1px solid #3a3b3c; }
+        
+        /* Dark mode - Sidebar */
+        body.dark-mode .sidebar { background-color: #242526; color: #e4e6eb; }
+        body.dark-mode .sidebar-header { background-color: #1e1e1e; border-bottom: 1px solid #3a3b3c; }
+        body.dark-mode .sidebar-section { border-bottom-color: #3a3b3c; }
+        body.dark-mode .sidebar-section h4 { color: #aaa; }
+        body.dark-mode .sidebar li { color: #e4e6eb; }
+        body.dark-mode .sidebar li:hover, body.dark-mode .sidebar li.active-filter { color: #4da3ff; }
+        body.dark-mode .sidebar li.active-filter::before { color: #4da3ff; }
+
+        /* Dark mode - Cards & Text */
+        body.dark-mode .header p.desc, body.dark-mode .info p, body.dark-mode .content-list, body.dark-mode .footer { color: #b0b3b8; }
+        body.dark-mode .card { background-color: #242526; box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
+        body.dark-mode .info h3 { border-bottom-color: #3a3b3c; color: #4da3ff; }
+        body.dark-mode .item-title { color: #e4e6eb; }
+        body.dark-mode .btn-outline { color: #4da3ff; border-color: #4da3ff; }
+        body.dark-mode .btn-outline:hover { background-color: #3a3b3c; }
+        body.dark-mode .note { background-color: #3a3b3c; border-left-color: #4da3ff; color: #e4e6eb; }
+        body.dark-mode .footer { border-top-color: #3a3b3c; }
+
+        /* Tinh chỉnh cho Mobile (Màn hình nhỏ) */
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8em; }
+            .float-btn { width: 40px; height: 40px; font-size: 20px; top: 10px; }
+            #menu-btn { left: 10px; }
+            #theme-btn { right: 10px; }
+            .card { padding: 15px; }
         }
     </style>
 </head>
 <body>
+
+    <div id="menu-btn" class="float-btn" title="Mở Menu">☰</div>
+    <div id="theme-btn" class="float-btn" title="Đổi giao diện">🌙</div>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            Menu Quang Trạng
+            <span class="close-btn" id="close-btn">&times;</span>
+        </div>
+        
+        <div class="sidebar-section">
+            <h4>Thông tin chung</h4>
+            <ul>
+                <li><a href="#">📞 Liên hệ (đang update)</a></li>
+                <li><a href="#">ℹ️ Thông tin (đang update)</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <h4>Lọc Danh Mục</h4>
+            <ul id="filter-list">
+                <li data-filter="all" class="active-filter">Tất cả danh mục</li>
+                <li data-filter="hanh-chinh">🏛️ Hành Chính & Dịch Vụ Công</li>
+                <li data-filter="thi-truong">📊 Biến Động Thị Trường</li>
+                <li data-filter="bao-mat">🛡️ Bảo Mật & DNS</li>
+                <li data-filter="tien-ich">🛠️ Tiện Ích & Trình Duyệt</li>
+                <li data-filter="cong-cu-it">💻 Công Cụ IT & VPS</li>
+                <li data-filter="ai">🤖 Trợ Lý AI</li>
+                <li data-filter="os">🖥️ Hệ Điều Hành & Office</li>
+                <li data-filter="boot">🛠️ Cứu Hộ & Boot</li>
+                <li data-filter="mas">🔑 Script Kích Hoạt MAS</li>
+            </ul>
+        </div>
+    </div>
 
     <div class="container">
         <div class="header">
             <h1>🌐 Cổng Thông Tin Cá Nhân</h1>
             <p class="greeting">👋 Xin chào quý AE bạn bè của Trạng!</p>
             <p class="desc">Trang lưu trữ phần mềm, công cụ IT, Dịch vụ công, Thị trường & AI</p>
-            <button id="theme-toggle" class="theme-btn">🌙 Giao diện Tối</button>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="hanh-chinh">
             <div class="info">
                 <h3>🏛️ Hành Chính & Dịch Vụ Công</h3>
                 
@@ -267,7 +282,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="thi-truong">
             <div class="info">
                 <h3>📊 Biến Động Thị Trường & Giá Cả</h3>
                 
@@ -285,7 +300,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="bao-mat">
             <div class="info">
                 <h3>🛡️ Bảo Mật & Xác Thực (Security)</h3>
                 
@@ -314,35 +329,21 @@
                     <a href="https://play.google.com/store/apps/details?id=io.ente.auth&hl=vi" class="btn" target="_blank">Ente Auth (Android)</a>
                     <a href="https://apps.apple.com/us/app/ente-auth-2fa-authenticator/id6444121398" class="btn btn-outline" target="_blank">Ente Auth (iOS)</a>
                 </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>🌐 DNS AdGuard (Bảo Vệ Gia Đình / Family Protection)</h3>
-                <p>Cấu hình DNS giúp chặn nội dung người lớn, mã độc và tự động lọc quảng cáo an toàn cho thiết bị.</p>
                 
-                <div class="item-title" style="margin-top: 10px;">DNS Chuẩn (DoH / DoT / DNSCrypt)</div>
-                <p>Nhập địa chỉ máy chủ:</p>
-                <div class="code-box">Preferred: dns-family.adguard.com</div>
-                <div class="code-box">Alternative: dns-family.adguard.com</div>
+                <h3 style="margin-top: 30px;">🌐 DNS AdGuard (Family Protection)</h3>
+                <p>Cấu hình DNS giúp chặn nội dung người lớn, mã độc và tự động lọc quảng cáo.</p>
+                <div class="item-title">DNS Chuẩn (DoH / DoT / DNSCrypt)</div>
+                <div class="code-box">Preferred: dns-family.adguard.com<br>Alternative: dns-family.adguard.com</div>
 
-                <div class="item-title">Giao Thức Cũ (Legacy) - IPv4</div>
-                <div class="code-box">94.140.14.15</div>
-                <div class="code-box">94.140.15.16</div>
-
-                <div class="item-title">Giao Thức Cũ (Legacy) - IPv6</div>
-                <div class="code-box">2a00:5a60::ad2</div>
-                <div class="code-box">2a00:5a60::ad3</div>
-
-                <div class="item-title" style="margin-top: 15px;">Thông Tin Chi Tiết</div>
-                <div class="btn-group">
-                    <a href="https://adguard-dns.io/vi/blog/adguard-dns-family-protection.html" class="btn btn-outline" target="_blank">Xem Blog Hướng Dẫn AdGuard</a>
+                <div class="item-title">Giao Thức Cũ (Legacy) - IPv4 & IPv6</div>
+                <div class="code-box">IPv4: 94.140.14.15 | 94.140.15.16<br>IPv6: 2a00:5a60::ad2 | 2a00:5a60::ad3</div>
+                <div class="btn-group" style="margin-top: 10px;">
+                    <a href="https://adguard-dns.io/vi/blog/adguard-dns-family-protection.html" class="btn btn-outline" target="_blank">Chi tiết AdGuard</a>
                 </div>
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="tien-ich">
             <div class="info">
                 <h3>🛠️ Phần Mềm Cơ Bản & Tiện Ích</h3>
                 
@@ -355,7 +356,7 @@
 
                 <div class="item-title">Tiện Ích Trình Duyệt (Chrome Extensions)</div>
                 <div class="btn-group">
-                    <a href="https://chromewebstore.google.com/detail/tr%C3%ACnh-qu%E1%BA%A3n-l%C3%BD-m%E1%BA%ADt-kh%E1%BA%A9u-bi/nngceckbapebfimnlniiiahkandclblb?hl=vi&utm_source=ext_sidebar" class="btn btn-outline" target="_blank">Bitwarden Password Manager</a>
+                    <a href="https://chromewebstore.google.com/detail/tr%C3%ACnh-qu%E1%BA%A3n-l%C3%BD-m%E1%BA%ADt-kh%E1%BA%A9u-bi/nngceckbapebfimnlniiiahkandclblb?hl=vi&utm_source=ext_sidebar" class="btn btn-outline" target="_blank">Bitwarden Extension</a>
                     <a href="https://chromewebstore.google.com/detail/ublock-origin-lite/ddkjiahejlhfcafbddmgiahcphecmpfh?hl=vi&utm_source=ext_sidebar" class="btn btn-outline" target="_blank">uBlock Origin Lite</a>
                     <a href="https://chromewebstore.google.com/detail/idm-integration-module/ngpampappnmepgilojfohadhhmbhlaek" class="btn btn-outline" target="_blank">IDM Integration Module</a>
                 </div>
@@ -378,7 +379,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="cong-cu-it">
             <div class="info">
                 <h3>💻 Công Cụ IT & Quản Trị Hệ Thống</h3>
                 
@@ -397,7 +398,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="ai">
             <div class="info">
                 <h3>🤖 Trợ Lý AI & Trí Tuệ Nhân Tạo</h3>
                 
@@ -441,7 +442,7 @@
                 <hr style="border: 0; border-top: 1px solid #ddd; margin: 25px 0;">
 
                 <div class="item-title">Top 10 Công Cụ AI Tiện Ích Khác (2025)</div>
-                <ol class="ai-list">
+                <ol class="content-list ai-list">
                     <li><a href="https://reccloud.com" target="_blank">RecCloud.com</a> – Chuyển giọng nói thành văn bản</li>
                     <li><a href="https://midjourney.com" target="_blank">MidJourney.com</a> – Tạo ra tác phẩm nghệ thuật bằng AI</li>
                     <li><a href="https://replit.com" target="_blank">Replit.com</a> – Viết và chạy mã lập trình</li>
@@ -455,7 +456,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="os">
             <div class="info">
                 <h3>🖥️ Hệ Điều Hành & Office</h3>
                 
@@ -490,7 +491,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="boot">
             <div class="info">
                 <h3>🛠️ Công Cụ Boot & Cứu Hộ</h3>
                 <p><strong>Rufus:</strong> Bypass máy không có TPM 2.0 để cài Win 11. <br>
@@ -502,7 +503,7 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="card" data-category="mas">
             <div class="info">
                 <h3>🔑 Activate Windows / Office (MAS)</h3>
                 <p>Mở PowerShell với quyền Administrator - Tắt Windows Defender.<br>
@@ -526,28 +527,77 @@
     </div>
 
     <script>
-        const toggleBtn = document.getElementById('theme-toggle');
+        // 1. Chức Năng Bật/Tắt Giao Diện Tối (Dark Mode)
+        const themeBtn = document.getElementById('theme-btn');
         const body = document.body;
 
-        // Kiểm tra xem trước đó người dùng đã chọn nền tối chưa
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
+        // Kiểm tra bộ nhớ duyệt web xem trước đó đã chọn Tối chưa
+        if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
-            toggleBtn.innerHTML = '☀️ Giao diện Sáng';
+            themeBtn.innerText = '☀️';
+        } else {
+            themeBtn.innerText = '🌙';
         }
 
-        // Bắt sự kiện khi click vào nút
-        toggleBtn.addEventListener('click', () => {
+        // Bấm nút để đổi giao diện
+        themeBtn.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
-            
-            // Đổi chữ trên nút và lưu vào bộ nhớ
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
-                toggleBtn.innerHTML = '☀️ Giao diện Sáng';
+                themeBtn.innerText = '☀️';
             } else {
                 localStorage.setItem('theme', 'light');
-                toggleBtn.innerHTML = '🌙 Giao diện Tối';
+                themeBtn.innerText = '🌙';
             }
+        });
+
+        // 2. Chức Năng Menu 3 Vạch (Sidebar)
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+        const closeBtn = document.getElementById('close-btn');
+
+        function openMenu() {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        }
+        function closeMenu() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        menuBtn.addEventListener('click', openMenu);
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // 3. Chức Năng Lọc Danh Mục (Filter Cards)
+        const filterItems = document.querySelectorAll('#filter-list li');
+        const cards = document.querySelectorAll('.card');
+
+        filterItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Xóa highlight cũ, bôi đậm danh mục đang chọn
+                filterItems.forEach(i => i.classList.remove('active-filter'));
+                item.classList.add('active-filter');
+
+                // Lấy data-filter để lọc thẻ
+                const filterValue = item.getAttribute('data-filter');
+
+                cards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block'; // Hiện tất cả
+                    } else if (card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block'; // Hiện thẻ đúng danh mục
+                    } else {
+                        card.style.display = 'none';  // Ẩn các thẻ khác
+                    }
+                });
+
+                // Tự động đóng menu sau khi chọn trên giao diện điện thoại
+                closeMenu();
+                // Kéo màn hình nhẹ lên trên để người dùng dễ nhìn
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
         });
     </script>
 </body>
