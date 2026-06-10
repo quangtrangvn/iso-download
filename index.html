@@ -5,387 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cổng Thông Tin & Lưu Trữ Của Quang Trạng</title>
     <style>
-        /* Phần CSS trang trí web */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .header h1 {
-            color: #1a73e8;
-            font-size: 2.2em;
-            margin-bottom: 10px;
-        }
-        .greeting {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #d93025;
-            margin-bottom: 5px;
-        }
-        .header p.desc {
-            color: #555;
-            font-size: 1.1em;
-            margin-top: 0;
-        }
-        /* Giao diện dạng thẻ - Không ảnh */
-        .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 25px;
-            margin-bottom: 25px;
-            transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
-        .info h3 {
-            margin: 0 0 15px 0;
-            font-size: 24px;
-            color: #1a73e8;
-            border-bottom: 2px solid #f0f2f5;
-            padding-bottom: 10px;
-        }
-        .item-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 20px 0 8px 0;
-            color: #222;
-        }
-        .info p {
-            margin: 0 0 12px 0;
-            color: #555;
-            line-height: 1.5;
-        }
-        /* Nút bấm */
-        .btn-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #1a73e8;
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.2s;
-            font-size: 14px;
-        }
-        .btn:hover {
-            background-color: #1557b0;
-        }
-        .btn-outline {
-            background-color: transparent;
-            color: #1a73e8;
-            border: 2px solid #1a73e8;
-            padding: 6px 14px;
-        }
-        .btn-outline:hover {
-            background-color: #f0f2f5;
-        }
-        /* Phần code lệnh & Danh sách */
-        .code-box {
-            background-color: #2d2d2d;
-            color: #f8f8f2;
-            padding: 15px;
-            border-radius: 6px;
-            font-family: Consolas, monospace;
-            margin: 10px 0;
-            overflow-x: auto;
-        }
-        ul, ol {
-            margin: 10px 0 15px 0;
-            padding-left: 20px;
-            color: #444;
-            line-height: 1.6;
-        }
-        .ai-list li {
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-        .ai-list a {
-            color: #1a73e8;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .ai-list a:hover {
-            text-decoration: underline;
-        }
-        .note {
-            background-color: #e8f0fe;
-            border-left: 4px solid #1a73e8;
-            padding: 10px 15px;
-            margin-bottom: 15px;
-            border-radius: 0 4px 4px 0;
-            font-size: 14px;
-        }
-        /* Chân trang */
-        .footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 25px;
-            color: #666;
-            font-size: 14px;
-            border-top: 1px solid #ddd;
-            line-height: 1.8;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 850px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .header h1 { color: #1a73e8; font-size: 2.2em; margin-bottom: 10px; }
+        .greeting { font-size: 1.2em; font-weight: bold; color: #d93025; margin-bottom: 5px; }
+        .card { background-color: white; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 25px; margin-bottom: 25px; transition: transform 0.2s; }
+        .info h3 { margin: 0 0 15px 0; font-size: 24px; color: #1a73e8; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; }
+        .item-title { font-size: 18px; font-weight: bold; margin: 20px 0 8px 0; color: #222; }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; }
+        .btn { display: inline-block; background-color: #1a73e8; color: white; text-decoration: none; padding: 8px 16px; border-radius: 5px; font-weight: bold; font-size: 14px; }
+        .btn-outline { background-color: transparent; color: #1a73e8; border: 2px solid #1a73e8; padding: 6px 14px; border-radius: 5px; font-weight: bold; font-size: 14px; }
+        .code-box { background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 6px; font-family: Consolas, monospace; margin: 10px 0; }
+        .footer { text-align: center; margin-top: 40px; padding: 25px; color: #666; font-size: 14px; border-top: 1px solid #ddd; }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <h1>🌐 Cổng Thông Tin Cá Nhân</h1>
-            <p class="greeting">👋 Xin chào quý AE bạn bè của Trạng!</p>
-            <p class="desc">Trang lưu trữ phần mềm, công cụ IT, Dịch vụ công & AI cập nhật mới nhất</p>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Bảo Mật & Xác Thực (Security)</h3>
-                
-                <div class="item-title" style="margin-top: 10px;">Quản Lý Mật Khẩu (Password Manager)</div>
-                <div class="btn-group">
-                    <a href="https://bitwarden.com/" class="btn" target="_blank">Bitwarden (Trang chủ)</a>
-                    <a href="https://github.com/bitwarden" class="btn btn-outline" target="_blank">Mã nguồn Bitwarden</a>
-                    <a href="https://github.com/dani-garcia/vaultwarden" class="btn btn-outline" target="_blank">Vaultwarden (Self-hosted)</a>
-                    <a href="https://github.com/shuaiplus/NodeWarden" class="btn btn-outline" target="_blank">NodeWarden</a>
-                </div>
-
-                <div class="item-title">Xác Thực 2 Yếu Tố (2FA)</div>
-                <div class="note">
-                    <strong>💡 Lời khuyên an toàn:</strong><br>
-                    - <strong>Android:</strong> Khuyên dùng Google Authenticator.<br>
-                    - <strong>iOS:</strong> Khuyên dùng Trình quản lý mật khẩu tích hợp sẵn của Apple.
-                </div>
-                <p style="margin-bottom: 5px;"><strong>Ente Auth:</strong> App bên thứ 3 (Miễn phí) đáng dùng nhất, an toàn và đồng bộ đa nền tảng.</p>
-                <div class="btn-group">
-                    <a href="https://play.google.com/store/apps/details?id=io.ente.auth&hl=vi" class="btn" target="_blank">Ente Auth (Android)</a>
-                    <a href="https://apps.apple.com/us/app/ente-auth-2fa-authenticator/id6444121398" class="btn btn-outline" target="_blank">Ente Auth (iOS)</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Hành Chính & Dịch Vụ Công</h3>
-                
-                <div class="item-title" style="margin-top: 10px;">Cổng Dịch Vụ Công Trực Tuyến</div>
-                <div class="btn-group">
-                    <a href="https://dichvucong.gov.vn/" class="btn" target="_blank">DVC Quốc Gia</a>
-                    <a href="https://dichvucong.bocongan.gov.vn/?home=1" class="btn btn-outline" target="_blank">DVC Bộ Công An</a>
-                </div>
-
-                <div class="item-title">Tra Cứu Giao Thông & Bảo Hiểm</div>
-                <div class="btn-group">
-                    <a href="https://csgt.bocongan.gov.vn/tra-cuu-phat-nguoi" class="btn" target="_blank">Tra cứu Phạt Nguội</a>
-                    <a href="https://gplx.csgt.bocongan.gov.vn/" class="btn btn-outline" target="_blank">Tra cứu GPLX (BCA)</a>
-                    <a href="https://dvc-gplx.csgt.bocongan.gov.vn/p/home/dvc-trang-chu.html" class="btn btn-outline" target="_blank">Cấp đổi GPLX</a>
-                    <a href="https://baohiemxahoi.gov.vn/tracuu/Pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx" class="btn btn-outline" target="_blank">Tra cứu BHYT</a>
-                </div>
-
-                <div class="item-title">Ứng Dụng Di Động (Chính Phủ)</div>
-                <p style="margin-bottom: 5px;"><strong>VNeID (Định danh điện tử)</strong></p>
-                <div class="btn-group">
-                    <a href="https://apps.apple.com/vn/app/vneid/id1582750372" class="btn btn-outline" target="_blank">Tải iOS</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.vnid" class="btn btn-outline" target="_blank">Tải Android</a>
-                </div>
-
-                <p style="margin-bottom: 5px;"><strong>VNeTraffic (Giao thông Quốc gia)</strong></p>
-                <div class="btn-group">
-                    <a href="https://apps.apple.com/vn/app/vnetraffic/id6475181815" class="btn btn-outline" target="_blank">Tải iOS</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.ots.c08.vnetraffic&hl=vi" class="btn btn-outline" target="_blank">Tải Android</a>
-                </div>
-
-                <p style="margin-bottom: 5px;"><strong>VssID (Bảo hiểm xã hội số)</strong></p>
-                <div class="btn-group">
-                    <a href="https://apps.apple.com/vn/app/vssid/id1521647264" class="btn btn-outline" target="_blank">Tải iOS</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.bhxhapp&hl=vi" class="btn btn-outline" target="_blank">Tải Android</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Trợ Lý AI & Trí Tuệ Nhân Tạo</h3>
-                
-                <p style="margin-bottom: 5px; font-weight: bold;">Google Gemini</p>
-                <div class="btn-group">
-                    <a href="https://gemini.google.com/app?hl=vi" class="btn" target="_blank">Bản Web</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.bard" class="btn btn-outline" target="_blank">App Android</a>
-                    <a href="https://apps.apple.com/vn/app/google-gemini/id6477489729?l=vi" class="btn btn-outline" target="_blank">App iOS</a>
-                </div>
-
-                <p style="margin-bottom: 5px; font-weight: bold;">ChatGPT (OpenAI)</p>
-                <div class="btn-group">
-                    <a href="https://chatgpt.com/" class="btn" target="_blank">Bản Web</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt&hl=vi" class="btn btn-outline" target="_blank">App Android</a>
-                    <a href="https://apps.apple.com/vn/app/chatgpt/id6448311069?l=vi" class="btn btn-outline" target="_blank">App iOS</a>
-                </div>
-
-                <p style="margin-bottom: 5px; font-weight: bold;">Microsoft Copilot</p>
-                <div class="btn-group">
-                    <a href="https://copilot.microsoft.com/" class="btn" target="_blank">Bản Web</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.microsoft.copilot&hl=vi" class="btn btn-outline" target="_blank">App Android</a>
-                    <a href="https://apps.apple.com/us/app/microsoft-copilot/id6472538445?l=vi" class="btn btn-outline" target="_blank">App iOS</a>
-                </div>
-
-                <p style="margin-bottom: 5px; font-weight: bold;">Grok AI (xAI)</p>
-                <div class="btn-group">
-                    <a href="https://grok.com/" class="btn" target="_blank">Bản Web</a>
-                    <a href="https://play.google.com/store/apps/details?id=ai.x.grok&hl=vi" class="btn btn-outline" target="_blank">App Android</a>
-                    <a href="https://apps.apple.com/us/app/grok-tr%E1%BB%A3-l%C3%BD-ai/id6670324846?l=vi" class="btn btn-outline" target="_blank">App iOS</a>
-                </div>
-
-                <div class="item-title" style="margin-top: 20px;">Các Công Cụ & Trình Duyệt AI Khác</div>
-                <div class="btn-group">
-                    <a href="https://aistudio.google.com/u/1/prompts/new_chat?pli=1" class="btn btn-outline" target="_blank">Google AI Studio</a>
-                    <a href="https://notebooklm.google.com/?authuser=2" class="btn btn-outline" target="_blank">NotebookLM</a>
-                    <a href="https://labs.google/" class="btn btn-outline" target="_blank">Google Labs</a>
-                    <a href="https://sora.chatgpt.com/" class="btn btn-outline" target="_blank">Sora AI (Video)</a>
-                </div>
-
-                <hr style="border: 0; border-top: 1px solid #ddd; margin: 25px 0;">
-
-                <div class="item-title">Top 10 Công Cụ AI Tiện Ích Khác (2025)</div>
-                <ol class="ai-list">
-                    <li><a href="https://reccloud.com" target="_blank">RecCloud.com</a> – Chuyển giọng nói thành văn bản</li>
-                    <li><a href="https://midjourney.com" target="_blank">MidJourney.com</a> – Tạo ra tác phẩm nghệ thuật bằng AI</li>
-                    <li><a href="https://replit.com" target="_blank">Replit.com</a> – Viết và chạy mã lập trình</li>
-                    <li><a href="https://taovideoai.com" target="_blank">Taovideoai.com</a> – Tạo video AI tự động</li>
-                    <li><a href="https://suno.com" target="_blank">Suno.com</a> – Tạo bất kỳ bài hát nào chỉ trong vài giây</li>
-                    <li><a href="https://fliki.ai" target="_blank">Fliki.ai</a> – Biến văn bản thành video TikTok</li>
-                    <li><a href="https://fastread.io" target="_blank">FastRead.io</a> – Tạo sách bằng AI</li>
-                    <li><a href="https://slidesai.io" target="_blank">SlidesAI.io</a> – Làm slide thuyết trình tự động</li>
-                    <li><a href="https://picwish.com" target="_blank">PicWish.com</a> – Chỉnh sửa ảnh siêu nhanh</li>
-                </ol>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Công Cụ IT & Quản Trị Hệ Thống</h3>
-                
-                <div class="item-title" style="margin-top: 10px;">Quản Trị Máy Chủ (VPS / Server) & Remote</div>
-                <div class="btn-group">
-                    <a href="https://putty.org/index.html" class="btn btn-outline" target="_blank">Putty</a>
-                    <a href="https://winscp.net/eng/download.php" class="btn btn-outline" target="_blank">WinSCP</a>
-                    <a href="https://termius.com/index.html" class="btn btn-outline" target="_blank">Termius</a>
-                    <a href="https://www.ultraviewer.net/vi/download.html" class="btn" target="_blank">Ultraviewer</a>
-                </div>
-
-                <div class="item-title">Camera An Ninh</div>
-                <div class="btn-group">
-                    <a href="https://dahua.vn/phan-mem-dfi2.html" class="btn btn-outline" target="_blank">Dahua App Config</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Phần Mềm Cơ Bản & Tiện Ích</h3>
-                
-                <div class="item-title" style="margin-top: 10px;">Nhắn Tin & Gửi File</div>
-                <div class="btn-group">
-                    <a href="https://zalo.me/download/zalo-pc?utm=90000" class="btn" target="_blank">Tải Zalo PC</a>
-                    <a href="https://telegram.org/dl/desktop/win64" class="btn btn-outline" target="_blank">Tải Telegram</a>
-                    <a href="https://transfer.it/start" class="btn btn-outline" target="_blank">Transfer.it (Gửi File)</a>
-                </div>
-
-                <div class="item-title">Tiện Ích Nền Tảng</div>
-                <div class="btn-group">
-                    <a href="https://www.unikey.org/download.html" class="btn btn-outline" target="_blank">Unikey</a>
-                    <a href="https://www.7-zip.org/download.html" class="btn btn-outline" target="_blank">7-Zip</a>
-                    <a href="https://www.internetdownloadmanager.com/download.html" class="btn" target="_blank">IDM</a>
-                    <a href="https://obsproject.com/download" class="btn btn-outline" target="_blank">OBS Studio</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Hệ Điều Hành & Office</h3>
-                
-                <div class="item-title" style="margin-top: 10px;">Windows 11 (Bản gốc Microsoft)</div>
-                <div class="btn-group">
-                    <a href="https://www.microsoft.com/en-us/software-download/windows11" class="btn" target="_blank">Download Win 11 Gốc</a>
-                </div>
-
-                <div class="item-title">Windows 11 ISO (Update 1/11/2025)</div>
-                <p>Hỏi cái này, <strong>Trạng có đẹp trai không?</strong></p>
-                <div class="btn-group">
-                    <a href="https://docs.google.com/document/d/1Cxi6GQllryeufG81s8qa-nbfaLZhEohkWL2_YK3OohM/edit?usp=sharing" class="btn" target="_blank">Có</a>
-                    <a href="https://1drv.ms/u/c/963c576a867c4d67/EdNiq6Z0H-5ErEAPbYFzC8kBZMjGIvIan9f7fUfcbj6U1g?e=3npVCJ" class="btn btn-outline" target="_blank">Không</a>
-                </div>
-
-                <div class="item-title">Windows - M365 Folder File</div>
-                <p>Muốn vào Folder hãy trả lời câu hỏi sau bằng cách Click chuột, <strong>Trạng có đẹp trai không?</strong></p>
-                <div class="btn-group">
-                    <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy85NjNjNTc2YTg2N2M0ZDY3L0VyQ29aSW9rakVGTGs4OU5YdE52a1hZQldpZmpNYzNUdGdUUUtVWkQ1M0tWOXc%5FZT1YbkhTdDY&id=963C576A867C4D67%21s8a64a8b08c244b4193cf4d5ed36f9176&cid=963C576A867C4D67" class="btn" target="_blank">Có</a>
-                    <a href="https://docs.google.com/document/d/1LJoZaLJs56UNBZWUSf574FfilomUXTYMVYUnLvRR-SU/edit?usp=sharing" class="btn btn-outline" target="_blank">Không</a>
-                </div>
-
-                <div class="item-title">Windows 7 ISO & Office Cổ (2010 - 2019)</div>
-                <div class="btn-group">
-                    <a href="https://drive.google.com/drive/folders/1nEhBsxDF0f5m0i6I09VWDV7wmZS7ALWJ?usp=sharing" class="btn" target="_blank">Download Win 7</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=a3VxT051RFNrbGZYb2x6QWhiMkRTQT09OjpoZHNOM3hOQnpwK2tpaGtQaEdMQVZRPT06OnJuN2o0ejVYdTFJV0o1RHQ1MzdHZnc9PQ==" class="btn btn-outline" target="_blank">Office 2019</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=QXJsUlVqMVNVWlc3MTZFWU5WNGVxZz09OjpQWGwwbVc4YVFtSFdLVzk0MGc5a1R3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn btn-outline" target="_blank">Office 2013</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=NzdPVjVFeUpVWHMvR0JJbUdEMytUZz09OjpRenl6VXlzcTBDSlVoZ1pKWk8rZmN3PT06OkpPejUxR2tuamNvRCtUSmtVaW00NFE9PQ==" class="btn btn-outline" target="_blank">Office 2016</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=Y1F4czlIQUtmcFhwY2w3ZEpTSnIwUT09Ojo1eHlVbWl3dmNHTlYwS0YxUTN2c3hRPT06OnVQL1Z6Y3NHMFhURDA4OGEwelVlY1E9PQ==" class="btn btn-outline" target="_blank">Office 2010</a>
-                    <a href="https://home.myhpcloud.com/acs/fileshare/?shareToken=WFBXTFhKajNqblE5S2FkYnV0M0hYQT09Ojp0di8rQTBYdk1jYmpmMmhqYXpNRVdRPT06OndHYnR5N3NKdk92REtQUjZaSHg3bGc9PQ==" class="btn btn-outline" target="_blank">Visio 2019</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Công Cụ Boot & Cứu Hộ</h3>
-                <p><strong>Rufus:</strong> Bypass máy không có TPM 2.0 để cài Win 11. <br>
-                <strong>Anhdvboot:</strong> Bộ cứu hộ máy tính chuyên nghiệp.</p>
-                <div class="btn-group">
-                    <a href="https://rufus.ie/downloads/" class="btn" target="_blank">Download Rufus</a>
-                    <a href="https://anhdvboot.com/tai-ve/" class="btn btn-outline" target="_blank">Download Anhdvboot</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="info">
-                <h3>Activate Windows / Office (MAS)</h3>
-                <p>Mở PowerShell với quyền Administrator - Tắt Windows Defender.<br>
-                Nhấn phím <strong>Windows + X</strong>, chọn <strong>PowerShell</strong> hoặc <strong>Terminal</strong>.</p>
-                <div class="code-box">irm https://get.activated.win | iex</div>
-                <div class="code-box">irm https://massgrave.dev/get | iex</div>
-
-                <div class="item-title" style="margin-top: 30px;">Tải TOOL Kích Hoạt Thủ Công</div>
-                <div class="btn-group">
-                    <a href="https://github.com/massgravel/Microsoft-Activation-Scripts/archive/refs/heads/master.zip" class="btn btn-outline" target="_blank">Download Tool 1</a>
-                    <a href="https://git.activated.win/massgrave/Microsoft-Activation-Scripts/archive/master.zip" class="btn btn-outline" target="_blank">Download Tool 2</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>❤️ Đây là web phi lợi nhuận phục vụ người thân, bạn bè. Thông tin trích từ nguồn chính xác nhất.</p>
-            <p>🛡️ Nói không với vi phạm pháp luật, mã độc và lừa đảo.</p>
-        </div>
-
+<div class="container">
+    <div class="header">
+        <h1>🌐 Cổng Thông Tin Cá Nhân</h1>
+        <p class="greeting">👋 Xin chào quý AE bạn bè của Trạng!</p>
     </div>
+
+    <div class="card">
+        <div class="info">
+            <h3>Thông Tin Thị Trường</h3>
+            <div class="btn-group">
+                <a href="https://www.petrolimex.com.vn/ndi/thong-cao-bao-chi.html" class="btn" target="_blank">Giá Xăng Dầu</a>
+                <a href="https://giacaphe.com/gia-ca-phe-noi-dia/" class="btn btn-outline" target="_blank">Giá Cà Phê Nội Địa</a>
+                <a href="https://giacaphe.com/gia-ca-phe-truc-tuyen/" class="btn btn-outline" target="_blank">Giá Cà Phê Trực Tuyến</a>
+                <a href="https://webgia.com/gia-vang/" class="btn btn-outline" target="_blank">Giá Vàng</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="info">
+            <h3>Cấu Hình Mạng (AdGuard Family)</h3>
+            <p><strong>DNS chuẩn (DoH / DoT):</strong> <code>dns-family.adguard.com</code></p>
+            <div class="item-title">DNS Giao thức cũ (IPv4)</div>
+            <div class="code-box">94.140.14.15<br>94.140.15.16</div>
+            <div class="item-title">DNS Giao thức cũ (IPv6)</div>
+            <div class="code-box">2a00:5a60::ad2<br>2a00:5a60::ad3</div>
+            <a href="https://adguard-dns.io/vi/blog/adguard-dns-family-protection.html" class="btn" target="_blank">Chi tiết bảo mật AdGuard</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>❤️ Đây là web phi lợi nhuận phục vụ người thân, bạn bè. Thông tin trích từ nguồn chính xác nhất.</p>
+        <p>🛡️ Nói không với vi phạm pháp luật, mã độc và lừa đảo.</p>
+    </div>
+</div>
 
 </body>
 </html>
