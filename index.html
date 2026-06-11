@@ -178,6 +178,9 @@
             text-align: center; margin-top: 40px; padding: 25px; color: #666;
             font-size: 14px; border-top: 1px solid #ddd; line-height: 1.8; transition: border-color 0.3s;
         }
+        .last-update {
+            margin-top: 15px; font-size: 13px; color: #888; font-style: italic;
+        }
 
         /* ========================================= */
         /* GIAO DIỆN TỐI (DARK MODE) */
@@ -204,6 +207,7 @@
         body.dark-mode .note { background-color: #3a3b3c; border-left-color: #4da3ff; color: #e4e6eb; }
         body.dark-mode .note-warning { background-color: #332b18; border-left-color: #ff9800; color: #ffb74d; }
         body.dark-mode .footer { border-top-color: #3a3b3c; }
+        body.dark-mode .last-update { color: #777; }
 
         /* Tinh chỉnh cho Mobile (Màn hình nhỏ) */
         @media (max-width: 600px) {
@@ -280,7 +284,8 @@
                 <div class="item-title">Tra Cứu Giao Thông & Bảo Hiểm</div>
                 <div class="btn-group">
                     <a href="https://csgt.bocongan.gov.vn/tra-cuu-phat-nguoi" class="btn" target="_blank">Tra cứu Phạt Nguội</a>
-                    <a href="https://csgt.bocongan.gov.vn/tra-cuu-giay-phep-lai-xe" class="btn btn-outline" target="_blank">Tra cứu GPLX (CSGT)</a>
+                    <a href="https://csgt.bocongan.gov.vn/tra-cuu-giay-phep-lai-xe" class="btn btn-outline" target="_blank">Tra cứu GPLX (Cổng 1)</a>
+                    <a href="https://gplx.csgt.bocongan.gov.vn/" class="btn btn-outline" target="_blank">Tra cứu GPLX (Cổng 2)</a>
                     <a href="https://dvc-gplx.csgt.bocongan.gov.vn/p/home/dvc-trang-chu.html" class="btn btn-outline" target="_blank">Cấp đổi GPLX</a>
                     <a href="https://baohiemxahoi.gov.vn/tracuu/Pages/tra-cuu-thoi-han-su-dung-the-bhyt.aspx" class="btn btn-outline" target="_blank">Tra cứu BHYT</a>
                 </div>
@@ -561,6 +566,7 @@
         <div class="footer">
             <p>❤️ Đây là web phi lợi nhuận phục vụ người thân, bạn bè. Thông tin trích từ nguồn chính xác nhất.</p>
             <p>🛡️ Nói không với vi phạm pháp luật, mã độc và lừa đảo.</p>
+            <p class="last-update">🕒 Cập nhật lần cuối: 11/06/2026</p>
         </div>
 
     </div>
