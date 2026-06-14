@@ -118,24 +118,41 @@
         input:checked + .slider:before { transform: translateX(20px); }
 
         /* ========================================= */
+        /* CỬA SỔ NỔI (MODAL GIỚI THIỆU) */
+        /* ========================================= */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.5);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .modal.show { display: flex; align-items: center; justify-content: center; opacity: 1; }
+        .modal-content {
+            background-color: #fff; margin: auto; padding: 30px;
+            border-radius: 12px; max-width: 500px; width: 90%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); position: relative;
+            transform: translateY(-20px); transition: transform 0.3s;
+        }
+        .modal.show .modal-content { transform: translateY(0); }
+        .close-modal {
+            position: absolute; right: 20px; top: 15px;
+            color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer;
+        }
+        .close-modal:hover { color: #333; }
+        .modal-header { color: #1a73e8; font-size: 24px; margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; margin-bottom: 15px;}
+        .modal-body { line-height: 1.6; color: #444; font-size: 15px; }
+
+        /* ========================================= */
         /* THẺ NỘI DUNG (CARDS) */
         /* ========================================= */
         .card {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            padding: 25px;
-            margin-bottom: 25px;
-            transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            background-color: white; border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 25px;
+            margin-bottom: 25px; transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
         }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
         .info h3 {
             margin: 0 0 15px 0; font-size: 24px; color: #1a73e8;
-            border-bottom: 2px solid #f0f2f5; padding-bottom: 10px;
-            transition: border-color 0.3s;
+            border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; transition: border-color 0.3s;
         }
         .item-title { font-size: 18px; font-weight: bold; margin: 20px 0 8px 0; color: #222; }
         .info p { margin: 0 0 12px 0; color: #555; line-height: 1.5; }
@@ -178,9 +195,7 @@
             text-align: center; margin-top: 40px; padding: 25px; color: #666;
             font-size: 14px; border-top: 1px solid #ddd; line-height: 1.8; transition: border-color 0.3s;
         }
-        .last-update {
-            margin-top: 15px; font-size: 13px; color: #888; font-style: italic;
-        }
+        .last-update { margin-top: 15px; font-size: 13px; color: #888; font-style: italic; }
 
         /* ========================================= */
         /* GIAO DIỆN TỐI (DARK MODE) */
@@ -196,6 +211,12 @@
         body.dark-mode .sidebar li { color: #e4e6eb; }
         body.dark-mode .sidebar li:hover, body.dark-mode .sidebar li.active-filter { color: #4da3ff; }
         body.dark-mode .sidebar li.active-filter::before { color: #4da3ff; }
+
+        /* Dark mode - Modal */
+        body.dark-mode .modal-content { background-color: #242526; color: #e4e6eb; border: 1px solid #3a3b3c;}
+        body.dark-mode .modal-header { color: #4da3ff; border-bottom-color: #3a3b3c; }
+        body.dark-mode .modal-body { color: #b0b3b8; }
+        body.dark-mode .close-modal:hover { color: #e4e6eb; }
 
         /* Dark mode - Cards & Text */
         body.dark-mode .header p.desc, body.dark-mode .info p, body.dark-mode .content-list, body.dark-mode .footer { color: #b0b3b8; }
@@ -241,8 +262,8 @@
         <div class="sidebar-section">
             <h4>Thông tin chung</h4>
             <ul>
+                <li id="open-intro-btn">ℹ️ Thông tin giới thiệu</li>
                 <li><a href="#">📞 Liên hệ (đang update)</a></li>
-                <li><a href="#">ℹ️ Thông tin (đang update)</a></li>
             </ul>
         </div>
 
@@ -261,6 +282,18 @@
                 <li data-filter="boot">🛠️ Cứu Hộ & Boot</li>
                 <li data-filter="mas">🔑 Script Kích Hoạt MAS</li>
             </ul>
+        </div>
+    </div>
+
+    <div id="intro-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-intro-modal">&times;</span>
+            <h2 class="modal-header">👋 Xin chào mọi người!</h2>
+            <div class="modal-body">
+                <p>Mình là <strong>Trạng</strong> – một người đam mê công nghệ và quản trị hệ thống, hiện đang sinh sống tại Thành phố Bảo Lộc, Lâm Đồng.</p>
+                <p>Cổng thông tin này được mình xây dựng phi lợi nhuận với mong muốn tạo ra một "ngăn kéo kỹ thuật số" an toàn, tiện lợi. Mục đích là để bản thân, gia đình và anh em bạn bè có một nơi đáng tin cậy để truy cập nhanh các dịch vụ công chính thống, tải các phần mềm sạch, cũng như áp dụng các giải pháp bảo vệ dữ liệu tốt nhất (như trình quản lý mật khẩu, xác thực 2 bước hay chat nội bộ mã hóa).</p>
+                <p>Hi vọng trang web nhỏ này sẽ mang lại giá trị thiết thực và giúp anh em có trải nghiệm an toàn tuyệt đối trên không gian mạng. Chúc mọi người sức khỏe và thành công!</p>
+            </div>
         </div>
     </div>
 
@@ -651,6 +684,27 @@
                 // Kéo màn hình nhẹ lên trên để người dùng dễ nhìn
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+        });
+
+        // 4. Mở Cửa Sổ Giới Thiệu (Modal)
+        const introModal = document.getElementById('intro-modal');
+        const openIntroBtn = document.getElementById('open-intro-btn');
+        const closeIntroModal = document.getElementById('close-intro-modal');
+
+        openIntroBtn.addEventListener('click', () => {
+            closeMenu(); // Đóng sidebar menu
+            introModal.classList.add('show'); // Hiện popup giới thiệu
+        });
+
+        closeIntroModal.addEventListener('click', () => {
+            introModal.classList.remove('show');
+        });
+
+        // Bấm ra ngoài vùng popup để đóng
+        window.addEventListener('click', (event) => {
+            if (event.target === introModal) {
+                introModal.classList.remove('show');
+            }
         });
     </script>
 </body>
